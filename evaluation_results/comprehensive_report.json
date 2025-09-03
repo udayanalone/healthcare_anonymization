@@ -1,0 +1,465 @@
+{
+  "data_structure_analysis": {
+    "original_column_count": 93,
+    "anonymized_column_count": 94,
+    "missing_columns": [],
+    "extra_columns": [
+      "AGE_RANGE"
+    ],
+    "dtype_changes": {
+      "BIRTHDATE": [
+        "object",
+        "float64"
+      ]
+    }
+  },
+  "clinical_data_preservation": {
+    "clinical_columns_analyzed": 43,
+    "overall_preservation_score": 0.8273069131435702,
+    "column_preservation_scores": {
+      "START": 0.9999999999999226,
+      "STOP": 0.9999999999999226,
+      "ORGANIZATION": 0.9999999999999907,
+      "PROVIDER": 0.0,
+      "PAYER": 1.0,
+      "ENCOUNTERCLASS": 0.9999999999999999,
+      "CODE": 1.0,
+      "DESCRIPTION": 1.0,
+      "BASE_ENCOUNTER_COST": 1.0,
+      "TOTAL_CLAIM_COST": 1.0,
+      "PAYER_COVERAGE": 0.5741972651736791,
+      "REASONCODE": 1.0,
+      "REASONDESCRIPTION": 1.0000000000000007,
+      "HEALTHCARE_EXPENSES": 1.0,
+      "HEALTHCARE_COVERAGE": 0.0,
+      "ORGANIZATION_provider": 0.0,
+      "SPECIALITY": 1.0,
+      "UTILIZATION": 1.0,
+      "REVENUE": 1.0,
+      "UTILIZATION_org": 1.0,
+      "AMOUNT_COVERED": 1.0,
+      "AMOUNT_UNCOVERED": 1.0,
+      "REVENUE_payer": 1.0,
+      "COVERED_ENCOUNTERS": 1.0,
+      "UNCOVERED_ENCOUNTERS": 1.0,
+      "COVERED_MEDICATIONS": 1.0,
+      "UNCOVERED_MEDICATIONS": 1.0,
+      "COVERED_PROCEDURES": 1.0,
+      "UNCOVERED_PROCEDURES": 1.0,
+      "COVERED_IMMUNIZATIONS": 1.0,
+      "UNCOVERED_IMMUNIZATIONS": 1.0,
+      "UNIQUE_CUSTOMERS": 1.0,
+      "QOLS_AVG": 1.0,
+      "MEMBER_MONTHS": 1.0,
+      "condition_codes": 1.0,
+      "condition_descriptions": 0.0,
+      "condition_dates": 0.0,
+      "medication_codes": 1.0,
+      "medication_descriptions": 0.0,
+      "total_medication_cost": 1.0,
+      "total_medication_claim_cost": 1.0,
+      "observation_count": 1.0,
+      "top_observation_types": 0.0
+    }
+  },
+  "data_utility_evaluation": {
+    "quasi_columns_analyzed": 27,
+    "overall_utility_score": 0.45555255599087396,
+    "column_utility_scores": {
+      "BIRTHDATE": {
+        "type": "categorical",
+        "score": 0.0
+      },
+      "DEATHDATE": {
+        "type": "categorical",
+        "score": 0.0017261219792865361
+      },
+      "MARITAL": {
+        "type": "categorical",
+        "score": 0.7919189003436425
+      },
+      "RACE": {
+        "type": "categorical",
+        "score": 0.11199999999999999
+      },
+      "ETHNICITY": {
+        "type": "categorical",
+        "score": 0.896
+      },
+      "GENDER": {
+        "type": "categorical",
+        "score": 0.4882
+      },
+      "BIRTHPLACE": {
+        "type": "categorical",
+        "score": 0.0014
+      },
+      "CITY": {
+        "type": "categorical",
+        "score": 0.0028
+      },
+      "STATE": {
+        "type": "categorical",
+        "score": 1.0
+      },
+      "COUNTY": {
+        "type": "categorical",
+        "score": 0.027
+      },
+      "ZIP": {
+        "type": "numerical",
+        "score": 0.33946917843547764,
+        "details": {
+          "mean": 0.5263831237266279,
+          "std": 0.9002315999461452,
+          "median": 0.5549777410207939
+        }
+      },
+      "LAT": {
+        "type": "numerical",
+        "score": 0.6909094537471347,
+        "details": {
+          "mean": 0.010547614524471435,
+          "std": 0.9052130375077784,
+          "median": 0.011510986726346007
+        }
+      },
+      "LON": {
+        "type": "numerical",
+        "score": 0.7249523652450898,
+        "details": {
+          "mean": 0.0019388650344020254,
+          "std": 0.822386161841137,
+          "median": 0.0008178773891918061
+        }
+      },
+      "GENDER_provider": {
+        "type": "categorical",
+        "score": 0.4764
+      },
+      "CITY_provider": {
+        "type": "categorical",
+        "score": 0.0156
+      },
+      "STATE_provider": {
+        "type": "categorical",
+        "score": 1.0
+      },
+      "ZIP_provider": {
+        "type": "numerical",
+        "score": NaN,
+        "details": {
+          "mean": NaN,
+          "std": NaN,
+          "median": NaN
+        }
+      },
+      "LAT_provider": {
+        "type": "numerical",
+        "score": 0.7047804465998817,
+        "details": {
+          "mean": 0.00981043472878284,
+          "std": 0.8647210958125594,
+          "median": 0.01112712965901281
+        }
+      },
+      "LON_provider": {
+        "type": "numerical",
+        "score": 0.7096227760705719,
+        "details": {
+          "mean": 0.005391618374924575,
+          "std": 0.857392042850758,
+          "median": 0.00834801056260186
+        }
+      },
+      "CITY_org": {
+        "type": "categorical",
+        "score": 0.0096
+      },
+      "STATE_org": {
+        "type": "categorical",
+        "score": 1.0
+      },
+      "ZIP_org": {
+        "type": "numerical",
+        "score": 0.7542527935865657,
+        "details": {
+          "mean": 0.016112983972882338,
+          "std": 0.6932098535415323,
+          "median": 0.027918781725888325
+        }
+      },
+      "LAT_org": {
+        "type": "numerical",
+        "score": 0.6792417858035911,
+        "details": {
+          "mean": 0.013705772270232838,
+          "std": 0.9336190735696289,
+          "median": 0.014949796749364992
+        }
+      },
+      "LON_org": {
+        "type": "numerical",
+        "score": 0.6871136270182122,
+        "details": {
+          "mean": 0.012538617913188364,
+          "std": 0.9107020952259202,
+          "median": 0.015418405806254832
+        }
+      },
+      "CITY_payer": {
+        "type": "categorical",
+        "score": 0.11015549649673834
+      },
+      "STATE_HEADQUARTERED": {
+        "type": "categorical",
+        "score": 0.06402512684223242
+      },
+      "ZIP_payer": {
+        "type": "numerical",
+        "score": 0.5571983835942997,
+        "details": {
+          "mean": 0.005554150204725338,
+          "std": 0.9226601275569056,
+          "median": 0.40019057145546977
+        }
+      }
+    }
+  },
+  "privacy_protection_assessment": {
+    "direct_identifiers_analyzed": 23,
+    "quasi_identifiers_analyzed": 27,
+    "pseudonymization_metrics": {
+      "Id_encounter": {
+        "original_unique_values": 5000,
+        "anonymized_unique_values": 5000,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "PATIENT": {
+        "original_unique_values": 2140,
+        "anonymized_unique_values": 2140,
+        "value_overlap": 2140,
+        "uniqueness_preservation": 1.0
+      },
+      "Id_patient": {
+        "original_unique_values": 2140,
+        "anonymized_unique_values": 2140,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "SSN": {
+        "original_unique_values": 2138,
+        "anonymized_unique_values": 2138,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "DRIVERS": {
+        "original_unique_values": 1980,
+        "anonymized_unique_values": 1980,
+        "value_overlap": 1980,
+        "uniqueness_preservation": 1.0
+      },
+      "PASSPORT": {
+        "original_unique_values": 1950,
+        "anonymized_unique_values": 1950,
+        "value_overlap": 1950,
+        "uniqueness_preservation": 1.0
+      },
+      "PREFIX": {
+        "original_unique_values": 3,
+        "anonymized_unique_values": 3,
+        "value_overlap": 3,
+        "uniqueness_preservation": 1.0
+      },
+      "FIRST": {
+        "original_unique_values": 1632,
+        "anonymized_unique_values": 1632,
+        "value_overlap": 1632,
+        "uniqueness_preservation": 1.0
+      },
+      "LAST": {
+        "original_unique_values": 572,
+        "anonymized_unique_values": 572,
+        "value_overlap": 572,
+        "uniqueness_preservation": 1.0
+      },
+      "SUFFIX": {
+        "original_unique_values": 3,
+        "anonymized_unique_values": 3,
+        "value_overlap": 3,
+        "uniqueness_preservation": 1.0
+      },
+      "MAIDEN": {
+        "original_unique_values": 402,
+        "anonymized_unique_values": 403,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0024875621890548
+      },
+      "ADDRESS": {
+        "original_unique_values": 2140,
+        "anonymized_unique_values": 2140,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "Id": {
+        "original_unique_values": 1196,
+        "anonymized_unique_values": 1196,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "NAME": {
+        "original_unique_values": 1141,
+        "anonymized_unique_values": 1141,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "ADDRESS_provider": {
+        "original_unique_values": 1063,
+        "anonymized_unique_values": 1063,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "Id_org": {
+        "original_unique_values": 1196,
+        "anonymized_unique_values": 1196,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "NAME_org": {
+        "original_unique_values": 1032,
+        "anonymized_unique_values": 1032,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "ADDRESS_org": {
+        "original_unique_values": 1063,
+        "anonymized_unique_values": 1063,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "PHONE": {
+        "original_unique_values": 954,
+        "anonymized_unique_values": 954,
+        "value_overlap": 954,
+        "uniqueness_preservation": 1.0
+      },
+      "Id_payer": {
+        "original_unique_values": 10,
+        "anonymized_unique_values": 10,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "NAME_payer": {
+        "original_unique_values": 10,
+        "anonymized_unique_values": 10,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "ADDRESS_payer": {
+        "original_unique_values": 7,
+        "anonymized_unique_values": 7,
+        "value_overlap": 0,
+        "uniqueness_preservation": 1.0
+      },
+      "PHONE_payer": {
+        "original_unique_values": 8,
+        "anonymized_unique_values": 8,
+        "value_overlap": 8,
+        "uniqueness_preservation": 1.0
+      }
+    },
+    "k_anonymity": 1,
+    "k_anonymity_avg": 1.1706172260032857,
+    "l_diversity_metrics": {
+      "START": {
+        "min_l_diversity": 1,
+        "avg_l_diversity": 1.1706172260032857
+      },
+      "STOP": {
+        "min_l_diversity": 1,
+        "avg_l_diversity": 1.1706172260032857
+      },
+      "ORGANIZATION": {
+        "min_l_diversity": 1,
+        "avg_l_diversity": 1.0464679652663693
+      },
+      "PROVIDER": {
+        "min_l_diversity": 1,
+        "avg_l_diversity": 1.0464679652663693
+      },
+      "PAYER": {
+        "min_l_diversity": 1,
+        "avg_l_diversity": 1.0
+      }
+    }
+  },
+  "information_loss_metrics": {
+    "quasi_columns_analyzed": 27,
+    "overall_information_preservation": 0.06455587003697345,
+    "column_information_metrics": {
+      "ZIP": {
+        "type": "numerical",
+        "normalized_variance": 0.990046266350694,
+        "mutual_information": 0.04549135513001647,
+        "normalized_mutual_information": 0.013701120361775933,
+        "information_preservation": 0.013701120361775933
+      },
+      "LAT": {
+        "type": "numerical",
+        "normalized_variance": 0.9910154317414982,
+        "mutual_information": 0.01839204800552077,
+        "normalized_mutual_information": 0.005536632208026695,
+        "information_preservation": 0.005536632208026695
+      },
+      "LON": {
+        "type": "numerical",
+        "normalized_variance": 0.9684533244944772,
+        "mutual_information": 0.02261762637703259,
+        "normalized_mutual_information": 0.006809000378635151,
+        "information_preservation": 0.006809000378635151
+      },
+      "LAT_provider": {
+        "type": "numerical",
+        "normalized_variance": 0.9816996180818452,
+        "mutual_information": 0.03923230835962553,
+        "normalized_mutual_information": 0.011811999463508754,
+        "information_preservation": 0.011811999463508754
+      },
+      "LON_provider": {
+        "type": "numerical",
+        "normalized_variance": 0.9796629705577199,
+        "mutual_information": 0.030693823188737677,
+        "normalized_mutual_information": 0.009247935659906678,
+        "information_preservation": 0.009247935659906678
+      },
+      "LAT_org": {
+        "type": "numerical",
+        "normalized_variance": 0.9955935726062457,
+        "mutual_information": 0.033494295113398506,
+        "normalized_mutual_information": 0.010084407786650137,
+        "information_preservation": 0.010084407786650137
+      },
+      "LON_org": {
+        "type": "numerical",
+        "normalized_variance": 0.9920258842029593,
+        "mutual_information": 0.03192433479551031,
+        "normalized_mutual_information": 0.00961868426617275,
+        "information_preservation": 0.00961868426617275
+      },
+      "ZIP_payer": {
+        "type": "numerical",
+        "normalized_variance": 0.9940185441304858,
+        "mutual_information": 0.97148443186439,
+        "normalized_mutual_information": 0.44963718017111154,
+        "information_preservation": 0.44963718017111154
+      }
+    }
+  },
+  "summary": {
+    "clinical_data_preservation_score": 0.8273069131435702,
+    "data_utility_score": 0.45555255599087396,
+    "k_anonymity": 1,
+    "information_preservation_score": 0.06455587003697345
+  }
+}
