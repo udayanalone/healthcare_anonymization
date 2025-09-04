@@ -1,0 +1,13 @@
+{
+  "input_file": "data\\unified_5000_records.csv",
+  "epochs": 200,
+  "batch_size": 64,
+  "records_processed": 3000,
+  "learning_rate": 0.0002,
+  "beta1": 0.5,
+  "beta2": 0.999,
+  "condition_dim": 10,
+  "target_dim": 16,
+  "timestamp": "2025-09-04T12:19:25.951050",
+  "device": "cpu"
+}

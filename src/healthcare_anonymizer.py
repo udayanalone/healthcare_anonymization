@@ -89,7 +89,7 @@ class HealthcareAnonymizer:
             'SSN', 'DRIVERS', 'PASSPORT',
             'PREFIX', 'FIRST', 'LAST', 'MAIDEN',
             'ADDRESS', 'ZIP', 'LAT', 'LON', 'ADDRESS_payer', 'PHONE_payer',
-            'DEATHDATE', 'PROVIDER'
+            'DEATHDATE', 'PROVIDER', 'PHONE', 'NAME_payer'
         ]
         
         # Find columns that exist in the dataframe

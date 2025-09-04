@@ -58,7 +58,7 @@ class HealthcareAnonymizationPipeline:
         self.direct_identifiers = [
             'SSN', 'DRIVERS', 'PASSPORT', 'PREFIX', 'FIRST', 'LAST', 'MAIDEN',
             'ADDRESS', 'ZIP', 'LAT', 'LON', 'ADDRESS_payer', 'PHONE_payer',
-            'DEATHDATE', 'PROVIDER'
+            'DEATHDATE', 'PROVIDER', 'PHONE', 'NAME_payer'
         ]
         
         self.quasi_identifiers = [

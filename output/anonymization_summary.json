@@ -1,15 +1,15 @@
 {
-  "total_records": 100,
-  "total_columns": 58,
+  "total_records": 3000,
+  "total_columns": 56,
   "mappings_generated": {
-    "encounters": 100,
-    "patients": 97,
-    "organizations": 80,
+    "encounters": 3000,
+    "patients": 1623,
+    "organizations": 927,
     "payers": 10,
     "id_payers": 10,
-    "reason_codes": 12
+    "reason_codes": 56
   },
-  "columns_removed": 15,
+  "columns_removed": 17,
   "date_columns_generalized": 4,
   "anonymization_methods_applied": [
     "Column Deletion",
