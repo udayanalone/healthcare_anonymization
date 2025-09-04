@@ -1,0 +1,24 @@
+{
+  "total_records": 100,
+  "total_columns": 58,
+  "mappings_generated": {
+    "encounters": 100,
+    "patients": 97,
+    "organizations": 80,
+    "payers": 10,
+    "id_payers": 10,
+    "reason_codes": 12
+  },
+  "columns_removed": 15,
+  "date_columns_generalized": 4,
+  "anonymization_methods_applied": [
+    "Column Deletion",
+    "Encounter ID Pseudonymization",
+    "Date Generalization",
+    "Organization Grouping",
+    "Patient Pseudonymization",
+    "Payer Mapping",
+    "Id_payer Mapping",
+    "Reason Code Mapping"
+  ]
+}

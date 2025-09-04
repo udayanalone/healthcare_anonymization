@@ -235,7 +235,7 @@ class ConditionalGAN:
         print(f"Generator parameters: {sum(p.numel() for p in self.generator.parameters()):,}")
         print(f"Discriminator parameters: {sum(p.numel() for p in self.discriminator.parameters()):,}")
     
-    def train(self, condition_tensor, target_tensor, epochs=100, batch_size=64, save_dir=None):
+    def train(self, condition_tensor, target_tensor, epochs=500, batch_size=64, save_dir=None):
         """
         Train the Conditional GAN.
         
@@ -262,19 +262,28 @@ class ConditionalGAN:
         # Binary cross entropy loss
         criterion = nn.BCELoss()
         
+        # Learning rate schedulers for better convergence with more epochs
+        g_scheduler = optim.lr_scheduler.StepLR(self.g_optimizer, step_size=100, gamma=0.8)
+        d_scheduler = optim.lr_scheduler.StepLR(self.d_optimizer, step_size=100, gamma=0.8)
+        
         # Training history
         history = {
             'g_losses': [],
             'd_losses': [],
-            'epochs': []
+            'epochs': [],
+            'g_lr': [],
+            'd_lr': []
         }
         
-        # Training loop
+        # Training loop with improved configurations for longer training
+        print(f"Starting CGAN training for {epochs} epochs...")
+        print(f"Batch size: {batch_size}, Data samples: {len(condition_tensor)}")
+        
         for epoch in range(epochs):
             g_losses = []
             d_losses = []
             
-            for condition_batch, target_batch in dataloader:
+            for batch_idx, (condition_batch, target_batch) in enumerate(dataloader):
                 batch_size = condition_batch.size(0)
                 
                 # Move data to device
@@ -328,19 +337,29 @@ class ConditionalGAN:
             avg_g_loss = np.mean(g_losses)
             avg_d_loss = np.mean(d_losses)
             
+            # Update learning rate schedulers
+            g_scheduler.step()
+            d_scheduler.step()
+            
+            # Get current learning rates
+            current_g_lr = self.g_optimizer.param_groups[0]['lr']
+            current_d_lr = self.d_optimizer.param_groups[0]['lr']
+            
             # Update history
             self.g_losses.append(avg_g_loss)
             self.d_losses.append(avg_d_loss)
             history['g_losses'].append(avg_g_loss)
             history['d_losses'].append(avg_d_loss)
             history['epochs'].append(epoch + 1)
+            history['g_lr'].append(current_g_lr)
+            history['d_lr'].append(current_d_lr)
             
-            # Print progress
-            if (epoch + 1) % 10 == 0 or epoch == 0:
-                print(f"Epoch [{epoch+1}/{epochs}] | D Loss: {avg_d_loss:.4f} | G Loss: {avg_g_loss:.4f}")
+            # Print progress with more frequent updates for longer training
+            if (epoch + 1) % 25 == 0 or epoch == 0 or (epoch + 1) % 50 == 0:
+                print(f"Epoch [{epoch+1}/{epochs}] | D Loss: {avg_d_loss:.4f} | G Loss: {avg_g_loss:.4f} | G LR: {current_g_lr:.6f} | D LR: {current_d_lr:.6f}")
             
-            # Save models periodically
-            if save_dir and (epoch + 1) % 10 == 0:
+            # Save models periodically (more frequent saves for longer training)
+            if save_dir and ((epoch + 1) % 25 == 0 or epoch == 0):
                 self.save_models(save_dir, epoch + 1, history)
         
         # Save final models

@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+"""
+Healthcare Data Anonymization with CGAN
+======================================
+
+This script provides the main interface for healthcare data anonymization
+using both traditional methods and Conditional GAN (CGAN) for synthetic data generation.
+
+Author: Healthcare Anonymization System
+Date: 2024
+"""
+
 import argparse
 import pandas as pd
 import numpy as np
@@ -10,6 +22,7 @@ import joblib
 from src.pseudonymization import Pseudonymizer
 from src.gan_model import ConditionalGAN
 from src.data_processor import DataProcessor
+from healthcare_anonymization_pipeline import HealthcareAnonymizationPipeline
 
 def parse_arguments():
     """
@@ -30,11 +43,13 @@ def parse_arguments():
                         help='Number of records to process (None for all)')
     parser.add_argument('--config', type=str, default=None,
                         help='Path to configuration file')
+    parser.add_argument('--healthcare-mode', action='store_true',
+                        help='Use healthcare-specific anonymization (column removal, ID pseudonymization, date generalization)')
     
     # Model arguments
     parser.add_argument('--train', action='store_true',
                         help='Train CGAN model')
-    parser.add_argument('--epochs', type=int, default=100,
+    parser.add_argument('--epochs', type=int, default=500,
                         help='Number of training epochs')
     parser.add_argument('--batch-size', type=int, default=64,
                         help='Batch size for training')
@@ -87,13 +102,33 @@ def main():
     
     # Step 1: Load and process data
     print("\n--- Step 1: Loading and Processing Data ---")
-    processor = DataProcessor(output_dir=output_dir)
     
     # Load data
-    df = processor.load_data(args.input, n_records=args.records)
-    if df is None:
-        print("Error loading data. Exiting.")
+    df = pd.read_csv(args.input, nrows=args.records)
+    print(f"Loaded {len(df)} records from {args.input}")
+    
+    if args.healthcare_mode:
+        # Use healthcare-specific anonymization
+        print("\n--- Healthcare-Specific Anonymization Mode ---")
+        healthcare_anonymizer = HealthcareAnonymizationPipeline(output_dir=output_dir)
+        df_anonymized = healthcare_anonymizer.run_anonymization_pipeline(args.input, args.records)
+        
+        if df_anonymized is not None:
+            # Save anonymized data
+            df_anonymized.to_csv(args.output, index=False)
+            print(f"Healthcare anonymized data saved to {args.output}")
+            
+            # Print summary
+            print(f"\n✅ Healthcare anonymization completed successfully!")
+            print(f"📊 Processed {len(df_anonymized):,} records")
+            print(f"📁 Output saved to: {args.output}")
+        else:
+            print("❌ Healthcare anonymization failed!")
+        
         return
+    
+    # Original CGAN-based anonymization
+    processor = DataProcessor(output_dir=output_dir)
     
     # Get feature categories from config or use default
     direct_identifiers = config.get('direct_identifiers', None)
